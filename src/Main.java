@@ -2,10 +2,10 @@
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        //task1();
-        //task2();
-        //task3();
-        //task4();
+        task1();
+        task2();
+        task3();
+        task4();
     }
 
 
@@ -26,10 +26,10 @@ public class Main {
     public static void task1() {
         int[] taskArr = generateRandomArray();
         int sum = 0;
-        for (int i : taskArr) {
-            sum += i;
+        for (int element : taskArr) {
+            sum += element;
         }
-        System.out.printf("Сумма затрат за месяц составила %d", sum);
+        System.out.printf("Сумма затрат за месяц составила %d\n", sum);
     }
 
     /**
@@ -38,25 +38,24 @@ public class Main {
      * Напишите программу, которая решит эту задачу, и выведите в консоль результат в формате: «Минимальная сумма трат за день составила … рублей. Максимальная сумма трат за день составила … рублей».
      */
     public static void task2() {
-        int max = -1, min;
+        int max = -1;
+        int min = 200001;
         int[] taskArr = generateRandomArray();
         /**
          * for (int i : taskArr) { //
          *   System.out.println(i);
          *}
          */
-        for (int i : taskArr) {
-            if (i > max) {
-                max = i;
+        for (int element : taskArr) {
+            if (element > max) {
+                max = element;
+            }
+            if (element < min) {
+                min = element;
             }
         }
+
         System.out.printf("Максимальная сумма затрат составила %d рублей\n", max);
-        min = max;
-        for (int i : taskArr) {
-            if (i < min) {
-                min = i;
-            }
-        }
         System.out.printf("Минимальная сумма составила %d рублей\n", min);
     }
 
@@ -70,23 +69,23 @@ public class Main {
     public static void task3() {
         int[] taskArr = generateRandomArray();
         float sum = 0;
-        for (int i : taskArr) {
-            sum += i;
+        for (int element : taskArr) {
+            sum += element;
         }
         sum /= taskArr.length;
         System.out.printf("Средняя сумма трат за месяц составляет %.2f", sum);
     }
 
     /**
-     *В бухгалтерской книге появился баг. Что-то пошло не так: фамилии и имена сотрудников начали отображаться в обратную сторону. Т. е. вместо «Иванов Иван» мы имеем «навИ вонавИ». Данные с именами сотрудников хранятся в виде массива символов
+     * В бухгалтерской книге появился баг. Что-то пошло не так: фамилии и имена сотрудников начали отображаться в обратную сторону. Т. е. вместо «Иванов Иван» мы имеем «навИ вонавИ». Данные с именами сотрудников хранятся в виде массива символов
      * char[ ]
      * .
-     *
+     * <p>
      * Напишите код, который в случае такого бага будет выводить фамилии и имена сотрудников в корректном виде. В качестве данных для массива используйте:
-     *
+     * <p>
      * char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
      * В результате в консоль должно быть выведено: Ivanov Ivan.
-     *
+     * <p>
      * Важно: не используйте дополнительные массивы для решения этой задачи. Необходимо корректно пройти по массиву циклом и распечатать его элементы в правильном порядке.
      */
     public static void task4() {
